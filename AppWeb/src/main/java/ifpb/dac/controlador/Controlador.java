@@ -1,6 +1,9 @@
 package ifpb.dac.controlador;
 
+import edu.ifpb.dac.EnderecoUsuario;
+import edu.ifpb.dac.Usuario;
 import ifpb.dac.service.Carrinho;
+import ifpb.dac.service.DAOIT;
 import java.io.IOException;
 import java.io.Serializable;
 import javax.ejb.EJB;
@@ -18,14 +21,34 @@ import javax.servlet.http.HttpSession;
 @ManagedBean(name = "controlador")
 @SessionScoped
 public class Controlador implements Serializable {
+   
+    Usuario usuario;
+    EnderecoUsuario eu;
+    
+    @EJB
+    private DAOIT dao;
 
+    public Controlador() {
+        usuario = new Usuario();
+        eu = new EnderecoUsuario();
+    }
+    
+
+    public String add(){
+        usuario.setEndereco(eu);
+        dao.salvar(usuario);
+        usuario = new Usuario();
+        return null;
+    }
+    
+    
+    
+    
+    /*
     private String produto;
 
     @EJB
-    private Carrinho carrinho;
-
-    public Controlador() {
-    }
+    private Carrinho carrinho;    
 
     public String add() {
         carrinho.add(produto);
@@ -62,5 +85,24 @@ public class Controlador implements Serializable {
 
         return null;
     }
+*/
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public EnderecoUsuario getEu() {
+        return eu;
+    }
+
+    public void setEu(EnderecoUsuario eu) {
+        this.eu = eu;
+    }
+    
+    
+    
 }
