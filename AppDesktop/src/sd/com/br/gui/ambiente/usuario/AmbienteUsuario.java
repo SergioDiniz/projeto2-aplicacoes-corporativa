@@ -49,12 +49,12 @@ public class AmbienteUsuario extends javax.swing.JFrame {
     }
     
     public void iniciarBotoes(){
-        Icon iconEscrever = new ImageIcon("src/main/java/sd/com/br/gui/img/escrever.jpg");
-        Icon iconPesquisar = new ImageIcon("src/main/java/sd/com/br/gui/img/pesquisar.jpg");
-        Icon iconRealizadas = new ImageIcon("src/main/java/sd/com/br/gui/img/realizadas.jpg");
-        Icon iconSair = new ImageIcon("src/main/java/sd/com/br/gui/img/sair.jpg");
-        Icon iconLogo = new ImageIcon("src/main/java/sd/com/br/gui/img/logo.png");
-        Icon iconConfig = new ImageIcon("src/main/java/sd/com/br/gui/img/configuracoes.jpg");
+        Icon iconEscrever = new ImageIcon("src/sd/com/br/gui/img/escrever.jpg");
+        Icon iconPesquisar = new ImageIcon("src/sd/com/br/gui/img/pesquisar.jpg");
+        Icon iconRealizadas = new ImageIcon("src/sd/com/br/gui/img/realizadas.jpg");
+        Icon iconSair = new ImageIcon("src/sd/com/br/gui/img/sair.jpg");
+        Icon iconLogo = new ImageIcon("src/sd/com/br/gui/img/logo.png");
+        Icon iconConfig = new ImageIcon("src/sd/com/br/gui/img/configuracoes.jpg");
         
         jBNovaDenuncia.setIcon(iconEscrever);
         jBPesquisarCidade.setIcon(iconPesquisar);

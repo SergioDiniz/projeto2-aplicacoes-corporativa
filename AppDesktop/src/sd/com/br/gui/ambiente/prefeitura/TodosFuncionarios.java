@@ -5,10 +5,9 @@
  */
 package sd.com.br.gui.ambiente.prefeitura;
 
+import edu.ifpb.dac.Prefeitura;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import sd.com.br.beans.Prefeitura;
-import sd.com.br.dao.DaoPrefeitura;
 import sd.com.br.gui.ModeloTabela;
 
 /**

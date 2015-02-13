@@ -5,13 +5,14 @@
  */
 package sd.com.br.gui.ambiente.prefeitura;
 
+import clientesemmaven.Conexoes;
+import edu.ifpb.dac.Funcionario;
+import edu.ifpb.dac.Prefeitura;
+import ifpb.dac.service.DAOIT;
+import ifpb.dac.service.FuncionarioServiceIT;
+import ifpb.dac.service.PrefeituraServiceIT;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import sd.com.br.beans.Funcionario;
-import sd.com.br.beans.Prefeitura;
-import sd.com.br.dao.Dao;
-import sd.com.br.dao.DaoFuncionario;
-import sd.com.br.dao.DaoPrefeitura;
 
 /**
  *
@@ -225,9 +226,9 @@ public class NovoFuncionario extends javax.swing.JPanel {
         
         
         if(jTCPF.getText().length() > 0){
-            DaoFuncionario df = new DaoFuncionario();
+            FuncionarioServiceIT fs = Conexoes.funcionarioService();
             
-            Funcionario f = df.buscarPorCPF(jTCPF.getText());
+            Funcionario f = fs.buscarPorCPF(jTCPF.getText());
             
             if(f != null){
                 jPDadosCompletos.setVisible(true);
@@ -280,13 +281,13 @@ public class NovoFuncionario extends javax.swing.JPanel {
         if((jTCPF.getText().length() > 0) && (jTNome.getText().length() > 0) && (jTEmail.getText().length() > 0) &&
                 (jTSenha.getText().length() > 0)){
             
-            Dao dao = new Dao();
-            DaoPrefeitura dp = new DaoPrefeitura();
+            DAOIT dao = Conexoes.DAO();
+            PrefeituraServiceIT ps = Conexoes.prefeituraService();
             Funcionario f = new Funcionario(jTNome.getText(), jTCPF.getText(), jTEmail.getText(), jTSenha.getText());
             
             dao.salvar(f);
             
-            String resultado = dp.cadastrarNaPrefeitura(prefeitura, f);
+            String resultado = ps.cadastrarNaPrefeitura(prefeitura, f);
             JOptionPane.showMessageDialog(jPanel1, resultado);
             
             
@@ -301,12 +302,12 @@ public class NovoFuncionario extends javax.swing.JPanel {
         
             if(jTCPF.getText().length() > 0){
                 
-                DaoFuncionario df = new DaoFuncionario();
-                DaoPrefeitura dp = new DaoPrefeitura();
+                FuncionarioServiceIT fs = Conexoes.funcionarioService();
+                PrefeituraServiceIT ps = Conexoes.prefeituraService();
                 
-                Funcionario f = df.buscarPorCPF(jTCPF.getText());
+                Funcionario f = fs.buscarPorCPF(jTCPF.getText());
                 
-                String resultado = dp.vincular(prefeitura, f);
+                String resultado = ps.vincular(prefeitura, f);
                 JOptionPane.showMessageDialog(jPanel1, resultado);   
                 
             } else {

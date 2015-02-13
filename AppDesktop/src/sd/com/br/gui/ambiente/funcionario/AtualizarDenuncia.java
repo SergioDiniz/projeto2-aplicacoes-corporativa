@@ -5,12 +5,14 @@
  */
 package sd.com.br.gui.ambiente.funcionario;
 
+import clientesemmaven.Conexoes;
 import edu.ifpb.dac.Cidade;
 import edu.ifpb.dac.Denuncia;
 import edu.ifpb.dac.EstadoDeAcompanhamento;
+import ifpb.dac.service.DenunciaServiceIT;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
-import sd.com.br.dao.DaoDenuncia;
+
 
 /**
  *
@@ -266,7 +268,7 @@ public class AtualizarDenuncia extends javax.swing.JPanel {
         
         if (jTCodigo.getText().length() > 0){
             
-            DaoDenuncia dd = new DaoDenuncia();
+            DenunciaServiceIT ds = Conexoes.denunciaService();
             
             int codigo = -1;
             
@@ -275,7 +277,7 @@ public class AtualizarDenuncia extends javax.swing.JPanel {
             } catch (Exception e) {}
             
             
-            Denuncia d = dd.pesquisarPorCodigo(codigo, cidade);
+            Denuncia d = ds.pesquisarPorCodigo(codigo, cidade);
 
             if (d != null){
                 codigoDenuncia = d.getId();
@@ -339,8 +341,8 @@ public class AtualizarDenuncia extends javax.swing.JPanel {
             }            
             
 
-            DaoDenuncia dd = new DaoDenuncia();
-            String resultado = dd.atualizarAcompanhamento(codigoDenuncia, estadoDeAcompanhamento, cidade);                
+            DenunciaServiceIT ds = Conexoes.denunciaService();
+            String resultado = ds.atualizarAcompanhamento(codigoDenuncia, estadoDeAcompanhamento, cidade);                
             
             JOptionPane.showMessageDialog(jPanel1, resultado);
             

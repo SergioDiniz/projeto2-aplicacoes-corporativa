@@ -5,11 +5,12 @@
  */
 package sd.com.br.gui.login;
 
+import clientesemmaven.Conexoes;
+import edu.ifpb.dac.Prefeitura;
+import ifpb.dac.service.PrefeituraServiceIT;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import sd.com.br.beans.Prefeitura;
-import sd.com.br.dao.DaoPrefeitura;
 import sd.com.br.gui.Inicio;
 import sd.com.br.gui.ambiente.prefeitura.AmbientePrefeitura;
 
@@ -25,7 +26,7 @@ public class LoginPrefeitura extends javax.swing.JFrame {
     private Inicio inicio;
     public LoginPrefeitura(Inicio inicio) {
         initComponents();
-        Icon icon = new ImageIcon("src/main/java/sd/com/br/gui/img/prefeitura.jpg");
+        Icon icon = new ImageIcon("src/sd/com/br/gui/img/prefeitura.jpg");
         jLIconePrefeitura.setIcon(icon);
         this.inicio = inicio;
     }
@@ -154,9 +155,9 @@ public class LoginPrefeitura extends javax.swing.JFrame {
 
         if((jTEmail.getText().length() > 0) && (jPSenha.getText().length() > 0)){
 
-            DaoPrefeitura dp = new DaoPrefeitura();
+            PrefeituraServiceIT ps = Conexoes.prefeituraService();
 
-            Prefeitura p = dp.login(jTEmail.getText(), jPSenha.getText());
+            Prefeitura p = ps.login(jTEmail.getText(), jPSenha.getText());
 
             if (p != null){
                 if(p.isAtivo() == true){

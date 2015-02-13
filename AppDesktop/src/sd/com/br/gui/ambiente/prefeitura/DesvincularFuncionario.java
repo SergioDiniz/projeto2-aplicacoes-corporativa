@@ -5,10 +5,11 @@
  */
 package sd.com.br.gui.ambiente.prefeitura;
 
+import clientesemmaven.Conexoes;
+import edu.ifpb.dac.Funcionario;
+import edu.ifpb.dac.Prefeitura;
+import ifpb.dac.service.PrefeituraServiceIT;
 import javax.swing.JOptionPane;
-import sd.com.br.beans.Funcionario;
-import sd.com.br.beans.Prefeitura;
-import sd.com.br.dao.DaoPrefeitura;
 
 /**
  *
@@ -216,8 +217,8 @@ public class DesvincularFuncionario extends javax.swing.JPanel {
         
         if ((jTCpf.getText().length() > 0)){
             
-            DaoPrefeitura dp = new DaoPrefeitura();
-            Funcionario f = dp.pesquisarFuncionario(prefeitura, jTCpf.getText());
+            PrefeituraServiceIT ps = Conexoes.prefeituraService();
+            Funcionario f = ps.pesquisarFuncionario(prefeitura, jTCpf.getText());
             
             if (f != null){
                 jPMsgNaoVinculado.setVisible(false);
@@ -247,8 +248,8 @@ public class DesvincularFuncionario extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
-        DaoPrefeitura dp = new DaoPrefeitura();
-        String resultado = dp.desvincular(prefeitura, jTCpf.getText());
+        PrefeituraServiceIT ps = Conexoes.prefeituraService();
+        String resultado = ps.desvincular(prefeitura, jTCpf.getText());
         
         JOptionPane.showMessageDialog(jPanel1, resultado);
         

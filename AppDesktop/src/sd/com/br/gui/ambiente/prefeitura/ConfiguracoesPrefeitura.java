@@ -5,13 +5,11 @@
  */
 package sd.com.br.gui.ambiente.prefeitura;
 
+import clientesemmaven.Conexoes;
+import edu.ifpb.dac.Prefeitura;
+import ifpb.dac.service.DAOIT;
+import ifpb.dac.service.PrefeituraServiceIT;
 import javax.swing.JOptionPane;
-import sd.com.br.beans.Cidade;
-import sd.com.br.beans.CidadePK;
-import sd.com.br.beans.Prefeitura;
-import sd.com.br.dao.Dao;
-import sd.com.br.dao.DaoCidade;
-import sd.com.br.dao.DaoPrefeitura;
 import sd.com.br.gui.Inicio;
 
 /**
@@ -198,7 +196,7 @@ if((jTNome.getText().length() > 0) && (jTEmail.getText().length() > 0) && (jTSen
             prefeitura.setSenha(jTSenha.getText());
             
             try {
-                Dao dao = new Dao();
+                DAOIT dao = Conexoes.DAO();
                 dao.atualizar(prefeitura);
                 JOptionPane.showMessageDialog(this, "Atualização realizado com sucesso.");
                 
@@ -220,8 +218,8 @@ if((jTNome.getText().length() > 0) && (jTEmail.getText().length() > 0) && (jTSen
     private void jBExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExcluirActionPerformed
         // TODO add your handling code here:
         
-        DaoPrefeitura dp = new DaoPrefeitura();
-        String resultado = dp.excluir(prefeitura);
+        PrefeituraServiceIT ps = Conexoes.prefeituraService();
+        String resultado = ps.excluir(prefeitura);
         
         JOptionPane.showMessageDialog(this, resultado);
         if(resultado != "ERRO!"){

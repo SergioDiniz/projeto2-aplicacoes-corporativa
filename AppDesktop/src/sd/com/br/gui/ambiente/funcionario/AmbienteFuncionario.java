@@ -48,11 +48,11 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
     
     public void iniciarBotoes(){
         
-        Icon iconAcompanhar = new ImageIcon("src/main/java/sd/com/br/gui/img/acompanharDenuncia.jpg");
-        Icon iconAtualizar = new ImageIcon("src/main/java/sd/com/br/gui/img/atualizarDenuncia.jpg");
-        Icon iconSair = new ImageIcon("src/main/java/sd/com/br/gui/img/sair.jpg");
-        Icon iconConfig = new ImageIcon("src/main/java/sd/com/br/gui/img/configuracoes.jpg");
-        Icon iconLogo = new ImageIcon("src/main/java/sd/com/br/gui/img/logo.png");
+        Icon iconAcompanhar = new ImageIcon("src/sd/com/br/gui/img/acompanharDenuncia.jpg");
+        Icon iconAtualizar = new ImageIcon("src/sd/com/br/gui/img/atualizarDenuncia.jpg");
+        Icon iconSair = new ImageIcon("src/sd/com/br/gui/img/sair.jpg");
+        Icon iconConfig = new ImageIcon("src/sd/com/br/gui/img/configuracoes.jpg");
+        Icon iconLogo = new ImageIcon("src/sd/com/br/gui/img/logo.png");
         
         
         jBAcompanharDenuncias.setIcon(iconAcompanhar);

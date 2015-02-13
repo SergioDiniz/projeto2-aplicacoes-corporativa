@@ -38,4 +38,8 @@ public class Conexoes {
     public static UsuarioServiceIT usuarioService(){
         return service.lookup("java:global/AppWeb/UsuarioService", UsuarioServiceIT.class);
     }
+    
+    public static DenunciaServiceIT denunciaService(){
+        return service.lookup("java:global/AppWeb/DenunciaService", DenunciaServiceIT.class);
+    }
 }

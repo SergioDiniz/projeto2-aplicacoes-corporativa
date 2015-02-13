@@ -5,9 +5,9 @@
  */
 package sd.com.br.gui.ambiente.prefeitura;
 
+import edu.ifpb.dac.Prefeitura;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import sd.com.br.beans.Prefeitura;
 import sd.com.br.gui.BemVindo;
 import sd.com.br.gui.Inicio;
 
@@ -42,12 +42,12 @@ public class AmbientePrefeitura extends javax.swing.JFrame {
     }
     
     public void iniciarBotoes(){
-        Icon iconNovo = new ImageIcon("src/main/java/sd/com/br/gui/img/novoFuncionario.jpg");
-        Icon iconRemover = new ImageIcon("src/main/java/sd/com/br/gui/img/removerFuncionario.jpg");
-        Icon iconListar = new ImageIcon("src/main/java/sd/com/br/gui/img/tudosFuncionarios.jpg");
-        Icon iconConf = new ImageIcon("src/main/java/sd/com/br/gui/img/configuracoes.jpg");
-        Icon iconLogo = new ImageIcon("src/main/java/sd/com/br/gui/img/logo.png");
-        Icon iconSair = new ImageIcon("src/main/java/sd/com/br/gui/img/sair.jpg");
+        Icon iconNovo = new ImageIcon("src/sd/com/br/gui/img/novoFuncionario.jpg");
+        Icon iconRemover = new ImageIcon("src/sd/com/br/gui/img/removerFuncionario.jpg");
+        Icon iconListar = new ImageIcon("src/sd/com/br/gui/img/tudosFuncionarios.jpg");
+        Icon iconConf = new ImageIcon("src/sd/com/br/gui/img/configuracoes.jpg");
+        Icon iconLogo = new ImageIcon("src/sd/com/br/gui/img/logo.png");
+        Icon iconSair = new ImageIcon("src/sd/com/br/gui/img/sair.jpg");
         
         jBNovoFuncionario.setIcon(iconNovo);
         jBRemoverFuncionario.setIcon(iconRemover);

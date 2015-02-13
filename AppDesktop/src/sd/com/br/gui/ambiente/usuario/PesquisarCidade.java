@@ -5,7 +5,9 @@
  */
 package sd.com.br.gui.ambiente.usuario;
 
+import clientesemmaven.Conexoes;
 import edu.ifpb.dac.Denuncia;
+import ifpb.dac.service.DenunciaServiceIT;
 import java.awt.Color;
 import java.awt.Component;
 import java.util.ArrayList;
@@ -14,7 +16,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
-import sd.com.br.dao.DaoDenuncia;
 import sd.com.br.gui.ModeloTabela;
 
 /**
@@ -149,9 +150,9 @@ public class PesquisarCidade extends javax.swing.JPanel{
         
         if((jTCidade.getText().length() > 0) && (jTEstado.getText().length() > 0)){
             
-            DaoDenuncia dd = new DaoDenuncia();
+            DenunciaServiceIT ds = Conexoes.denunciaService();
             
-            List<Denuncia> denuncias = dd.pesquisarPorCidade(jTCidade.getText(), jTEstado.getText());
+            List<Denuncia> denuncias = ds.pesquisarPorCidade(jTCidade.getText(), jTEstado.getText());
             
             if (denuncias != null){
                 ArrayList dados = new ArrayList();
