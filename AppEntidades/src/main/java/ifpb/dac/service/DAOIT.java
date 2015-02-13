@@ -13,5 +13,9 @@ public interface DAOIT {
     
     public void salvar(Object object);
     
+    public void atualizar(Object object);
+    
+    public void excluir(Object object);
+    
     
 }

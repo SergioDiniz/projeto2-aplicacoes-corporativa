@@ -25,5 +25,15 @@ public class DAO implements DAOIT{
     public void salvar(Object object) {
         em.persist(object);
     }
+
+    @Override
+    public void atualizar(Object object) {
+        em.merge(object);
+    }
+
+    @Override
+    public void excluir(Object object) {
+        em.remove(object);
+    }
     
 }

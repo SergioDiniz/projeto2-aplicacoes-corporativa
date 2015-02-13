@@ -5,6 +5,7 @@
  */
 package edu.ifpb.dac;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.GeneratedValue;
@@ -15,7 +16,7 @@ import javax.persistence.Id;
  * @author Sergiod
  */
 @Embeddable
-public class CidadePK {
+public class CidadePK implements Serializable{
 
     @Column(nullable = false)
     private String nomeCidade;

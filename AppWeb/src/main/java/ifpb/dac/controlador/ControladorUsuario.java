@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
  */
 @ManagedBean(name = "controlador")
 @SessionScoped
-public class Controlador implements Serializable {
+public class ControladorUsuario implements Serializable {
    
     Usuario usuario;
     EnderecoUsuario eu;
@@ -28,7 +28,7 @@ public class Controlador implements Serializable {
     @EJB
     private DAOIT dao;
 
-    public Controlador() {
+    public ControladorUsuario() {
         usuario = new Usuario();
         eu = new EnderecoUsuario();
     }
