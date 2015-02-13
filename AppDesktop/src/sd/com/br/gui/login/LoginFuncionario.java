@@ -5,13 +5,14 @@
  */
 package sd.com.br.gui.login;
 
+import clientesemmaven.Conexoes;
+import edu.ifpb.dac.Cidade;
+import edu.ifpb.dac.Funcionario;
+import ifpb.dac.service.CidadeServiceIT;
+import ifpb.dac.service.FuncionarioServiceIT;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import sd.com.br.beans.Cidade;
-import sd.com.br.beans.Funcionario;
-import sd.com.br.dao.DaoCidade;
-import sd.com.br.dao.DaoFuncionario;
 import sd.com.br.gui.Inicio;
 import sd.com.br.gui.ambiente.funcionario.AmbienteFuncionario;
 
@@ -28,7 +29,7 @@ public class LoginFuncionario extends javax.swing.JFrame {
     
     public LoginFuncionario(Inicio inicio) {
         initComponents();
-        Icon icon = new ImageIcon("src/main/java/sd/com/br/gui/img/funcionarios.png");
+        Icon icon = new ImageIcon("src/sd/com/br/gui/img/funcionarios.png");
         jLIconeFuncionario.setIcon(icon);
         this.inicio = inicio;
     }
@@ -198,9 +199,9 @@ public class LoginFuncionario extends javax.swing.JFrame {
         if((jTEmail.getText().length() > 0) && (jPSenha.getText().length() > 0) && (jTCidade.getText().length() > 0)
                 && (jTSiglaEstado.getText().length() > 0)){
 
-            DaoFuncionario df = new DaoFuncionario();
-            DaoCidade dc = new DaoCidade();
-            Funcionario f = df.login(jTEmail.getText(), jPSenha.getText(), jTCidade.getText(), jTSiglaEstado.getText());
+            FuncionarioServiceIT fs = Conexoes.funcionarioService();
+            CidadeServiceIT dc = Conexoes.cidadeService();
+            Funcionario f = fs.login(jTEmail.getText(), jPSenha.getText(), jTCidade.getText(), jTSiglaEstado.getText());
             Cidade c = dc.pesquisarCidade(jTCidade.getText(), jTSiglaEstado.getText());
             if (f != null){
                 this.dispose();

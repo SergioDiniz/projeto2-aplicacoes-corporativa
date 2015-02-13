@@ -5,11 +5,11 @@
  */
 package sd.com.br.gui.ambiente.usuario;
 
+import clientesemmaven.Conexoes;
+import edu.ifpb.dac.Usuario;
+import ifpb.dac.service.DAOIT;
+import ifpb.dac.service.UsuarioServiceIT;
 import javax.swing.JOptionPane;
-import sd.com.br.beans.EnderecoUsuario;
-import sd.com.br.beans.Usuario;
-import sd.com.br.dao.Dao;
-import sd.com.br.dao.DaoUsuario;
 import sd.com.br.gui.Inicio;
 
 /**
@@ -245,7 +245,7 @@ public class ConfiguracoesUsuario extends javax.swing.JPanel {
             usuario.getEndereco().setEstado(jTEstado.getText());
 
             try {
-                Dao dao = new Dao();
+                DAOIT dao = Conexoes.DAO();
                 dao.atualizar(usuario);
 
                 JOptionPane.showMessageDialog(this, "Atualização realizado com sucesso.");
@@ -268,8 +268,8 @@ public class ConfiguracoesUsuario extends javax.swing.JPanel {
 
     private void jBExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExcluirActionPerformed
         // TODO add your handling code here:
-        DaoUsuario du = new DaoUsuario();
-        String resultado = du.excluir(usuario);
+        UsuarioServiceIT us = Conexoes.usuarioService();
+        String resultado = us.excluir(usuario);
         
         JOptionPane.showMessageDialog(this, resultado);
         if(resultado != "ERRO!"){

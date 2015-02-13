@@ -5,6 +5,9 @@
  */
 package sd.com.br.gui.login;
 
+import clientesemmaven.Conexoes;
+import edu.ifpb.dac.Administrador;
+import ifpb.dac.service.AdministradorServiceIT;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -152,11 +155,12 @@ public class LoginAdmin extends javax.swing.JFrame {
 
         if((jTEmail.getText().length() > 0) && (jPSenha.getText().length() > 0)){
 
-            DaoAdmin ad = new DaoAdmin();
+            AdministradorServiceIT ad = Conexoes.administradorService();
 
             Administrador a = ad.login(jTEmail.getText(), jPSenha.getText());
 
             if (a != null){
+                JOptionPane.showMessageDialog(rootPane, "Bem Vindo");
                 this.dispose();
                 inicio.dispose();
                 AmbienteAdmin ambienteAdmin = new AmbienteAdmin(inicio, a);

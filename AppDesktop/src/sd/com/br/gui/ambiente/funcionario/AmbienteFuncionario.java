@@ -5,12 +5,11 @@
  */
 package sd.com.br.gui.ambiente.funcionario;
 
+import edu.ifpb.dac.Cidade;
+import edu.ifpb.dac.Funcionario;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
-import sd.com.br.beans.Cidade;
-import sd.com.br.beans.Funcionario;
-import sd.com.br.dao.DaoCidade;
 import sd.com.br.gui.BemVindo;
 import sd.com.br.gui.Inicio;
 

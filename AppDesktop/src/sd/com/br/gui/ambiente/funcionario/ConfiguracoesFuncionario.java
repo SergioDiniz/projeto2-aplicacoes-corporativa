@@ -5,11 +5,12 @@
  */
 package sd.com.br.gui.ambiente.funcionario;
 
+import clientesemmaven.Conexoes;
+import edu.ifpb.dac.Cidade;
+import edu.ifpb.dac.Funcionario;
+import ifpb.dac.service.DAOIT;
+import ifpb.dac.service.FuncionarioServiceIT;
 import javax.swing.JOptionPane;
-import sd.com.br.beans.Cidade;
-import sd.com.br.beans.Funcionario;
-import sd.com.br.dao.Dao;
-import sd.com.br.dao.DaoFuncionario;
 import sd.com.br.gui.Inicio;
 
 /**
@@ -171,7 +172,7 @@ public class ConfiguracoesFuncionario extends javax.swing.JPanel {
             funcionario.setSenha(jTSenha.getText());
             
             try {
-                Dao dao = new Dao();
+                DAOIT dao = Conexoes.DAO();
                 dao.atualizar(funcionario);
 
                 JOptionPane.showMessageDialog(this, "Atualização realizado com sucesso.");
@@ -194,8 +195,8 @@ public class ConfiguracoesFuncionario extends javax.swing.JPanel {
     private void jBExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExcluirActionPerformed
         // TODO add your handling code here:
         
-        DaoFuncionario df = new DaoFuncionario();
-        String resultado = df.excluir(funcionario);
+        FuncionarioServiceIT fs = Conexoes.funcionarioService();
+        String resultado = fs.excluir(funcionario);
         
         JOptionPane.showMessageDialog(this, resultado);
         if(resultado != "ERRO!"){

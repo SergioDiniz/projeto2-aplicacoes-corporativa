@@ -5,11 +5,11 @@
  */
 package sd.com.br.gui.ambiente.funcionario;
 
+import edu.ifpb.dac.Cidade;
+import edu.ifpb.dac.Denuncia;
+import edu.ifpb.dac.EstadoDeAcompanhamento;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
-import sd.com.br.beans.Cidade;
-import sd.com.br.beans.Denuncia;
-import sd.com.br.beans.EstadoDeAcompanhamento;
 import sd.com.br.dao.DaoDenuncia;
 
 /**

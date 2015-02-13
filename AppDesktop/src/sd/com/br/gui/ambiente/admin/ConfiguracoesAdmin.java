@@ -5,9 +5,10 @@
  */
 package sd.com.br.gui.ambiente.admin;
 
+import clientesemmaven.Conexoes;
+import edu.ifpb.dac.Administrador;
+import ifpb.dac.service.DAOIT;
 import javax.swing.JOptionPane;
-import sd.com.br.beans.Administrador;
-import sd.com.br.dao.Dao;
 
 /**
  *
@@ -145,7 +146,7 @@ public class ConfiguracoesAdmin extends javax.swing.JPanel {
             administrador.setSenha(jTSenha.getText());
             
             try {
-                Dao dao = new Dao();
+                DAOIT dao = Conexoes.DAO();
                 dao.atualizar(administrador);
                 JOptionPane.showMessageDialog(this, "Atualização realizado com sucesso.");
                 

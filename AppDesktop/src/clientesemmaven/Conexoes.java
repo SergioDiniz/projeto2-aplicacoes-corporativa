@@ -23,4 +23,19 @@ public class Conexoes {
         return service.lookup("java:global/AppWeb/CidadeService", CidadeServiceIT.class);
     }
     
+    public static AdministradorServiceIT administradorService(){
+        return service.lookup("java:global/AppWeb/AdministradorService", AdministradorServiceIT.class);
+    }
+    
+    public static PrefeituraServiceIT prefeituraService(){
+        return service.lookup("java:global/AppWeb/PrefeituraService", PrefeituraServiceIT.class);
+    }
+    
+    public static FuncionarioServiceIT funcionarioService(){
+        return service.lookup("java:global/AppWeb/FuncionarioService", FuncionarioServiceIT.class);
+    }
+    
+    public static UsuarioServiceIT usuarioService(){
+        return service.lookup("java:global/AppWeb/UsuarioService", UsuarioServiceIT.class);
+    }
 }

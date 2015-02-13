@@ -5,10 +5,11 @@
  */
 package sd.com.br.gui.ambiente.funcionario;
 
+import clientesemmaven.Conexoes;
+import edu.ifpb.dac.Cidade;
+import ifpb.dac.service.CidadeServiceIT;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import sd.com.br.beans.Cidade;
-import sd.com.br.dao.DaoCidade;
 import sd.com.br.gui.ModeloTabela;
 
 /**
@@ -31,7 +32,7 @@ public class AcompanharDenuncia extends javax.swing.JPanel {
     }
     
     public void atualizarCidade(){
-        DaoCidade dc = new DaoCidade();
+        CidadeServiceIT dc = Conexoes.cidadeService();
         cidade = dc.atualizarObjCidade(cidade);
     }    
     

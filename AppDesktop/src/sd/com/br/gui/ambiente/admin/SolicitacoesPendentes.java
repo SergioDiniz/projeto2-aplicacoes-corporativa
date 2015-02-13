@@ -5,11 +5,12 @@
  */
 package sd.com.br.gui.ambiente.admin;
 
+import clientesemmaven.Conexoes;
+import edu.ifpb.dac.Prefeitura;
+import ifpb.dac.service.PrefeituraServiceIT;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import sd.com.br.beans.Prefeitura;
-import sd.com.br.dao.DaoPrefeitura;
 import sd.com.br.gui.ModeloTabela;
 
 /**
@@ -29,8 +30,8 @@ public class SolicitacoesPendentes extends javax.swing.JPanel {
     
     public void init(){
         
-        DaoPrefeitura dp = new DaoPrefeitura();
-        List<Prefeitura> prefeituras = dp.prefeiturasPendentes();
+        PrefeituraServiceIT ps = Conexoes.prefeituraService();
+        List<Prefeitura> prefeituras = ps.prefeiturasPendentes();
         
         if(prefeituras != null){
             jPTabela.setVisible(true);

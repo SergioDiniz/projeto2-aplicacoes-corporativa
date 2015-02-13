@@ -5,9 +5,10 @@
  */
 package sd.com.br.gui.ambiente.usuario;
 
+import clientesemmaven.Conexoes;
+import edu.ifpb.dac.Usuario;
+import ifpb.dac.service.UsuarioServiceIT;
 import javax.swing.JOptionPane;
-import sd.com.br.beans.Usuario;
-import sd.com.br.dao.DaoUsuario;
 
 /**
  *
@@ -213,9 +214,9 @@ public class NovaDenuncia extends javax.swing.JPanel {
                 && (jTNumero.getText().length() > 0) && (jTBairro.getText().length() > 0) && (jTDescricao.getText().length() > 0)){
             
             
-            DaoUsuario du = new DaoUsuario();
+            UsuarioServiceIT us = Conexoes.usuarioService();
             
-            String resultado = du.novaDenuncia(usuario, jTCidade.getText(), jTEstado.getText(), jTRua.getText(), 
+            String resultado = us.novaDenuncia(usuario, jTCidade.getText(), jTEstado.getText(), jTRua.getText(), 
                     jTNumero.getText(), jTBairro.getText(), jTDescricao.getText());
             
             JOptionPane.showMessageDialog(jBSalvar, resultado);

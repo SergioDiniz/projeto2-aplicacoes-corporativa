@@ -5,10 +5,10 @@
  */
 package sd.com.br.gui.ambiente.admin;
 
+import clientesemmaven.Conexoes;
+import edu.ifpb.dac.Prefeitura;
+import ifpb.dac.service.PrefeituraServiceIT;
 import javax.swing.JOptionPane;
-import sd.com.br.beans.Prefeitura;
-import sd.com.br.dao.Dao;
-import sd.com.br.dao.DaoPrefeitura;
 
 /**
  *
@@ -281,8 +281,8 @@ public class GerenciarSolicitacao extends javax.swing.JPanel {
             situacao = true;
         }
         
-        DaoPrefeitura dp = new DaoPrefeitura();
-        String resultado = dp.atualizarSituacao(dp.pesquisarPorCodigo(codigo), situacao);
+        PrefeituraServiceIT ps = Conexoes.prefeituraService();
+        String resultado = ps.atualizarSituacao(ps.pesquisarPorCodigo(codigo), situacao);
          JOptionPane.showMessageDialog(jPanel1, resultado);
         
     }//GEN-LAST:event_jBSalvarActionPerformed
@@ -293,7 +293,7 @@ public class GerenciarSolicitacao extends javax.swing.JPanel {
         if(jTCodigo.getText().length() > 0){
                        
             
-            DaoPrefeitura dp = new DaoPrefeitura();
+            PrefeituraServiceIT ps = Conexoes.prefeituraService();
             
             int codaux = -1;
             
@@ -301,7 +301,7 @@ public class GerenciarSolicitacao extends javax.swing.JPanel {
                 codaux = Integer.parseInt(jTCodigo.getText());                
             } catch (Exception e) {}             
             
-            Prefeitura p = dp.pesquisarPorCodigo(codaux);
+            Prefeitura p = ps.pesquisarPorCodigo(codaux);
             
             if(p != null){
                 jLMsgErro.setVisible(false);
@@ -346,8 +346,8 @@ public class GerenciarSolicitacao extends javax.swing.JPanel {
         
         try {
             
-            DaoPrefeitura dp = new DaoPrefeitura();
-            String resultado = dp.excluir(dp.pesquisarPorCodigo(codigo));
+            PrefeituraServiceIT ps = Conexoes.prefeituraService();
+            String resultado = ps.excluir(ps.pesquisarPorCodigo(codigo));
             JOptionPane.showMessageDialog(jPanel1, "Ecluido com sucesso!");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(jPanel1, "ERRO!");

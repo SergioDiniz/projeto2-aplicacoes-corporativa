@@ -5,11 +5,12 @@
  */
 package sd.com.br.gui.ambiente.usuario;
 
+import clientesemmaven.Conexoes;
+import edu.ifpb.dac.Denuncia;
+import ifpb.dac.service.UsuarioServiceIT;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import sd.com.br.beans.Denuncia;
-import sd.com.br.dao.DaoUsuario;
 import sd.com.br.gui.ModeloTabela;
 
 /**
@@ -30,9 +31,9 @@ public class DenunciasRealizadas extends javax.swing.JPanel {
     
     public void minhasDenuncias(){
         
-        DaoUsuario du = new DaoUsuario();
+        UsuarioServiceIT us = Conexoes.usuarioService();
         
-        List<Denuncia> denuncias = du.minhasDenuncias(emailUsuaio);
+        List<Denuncia> denuncias = us.minhasDenuncias(emailUsuaio);
         
         if(denuncias != null){
             

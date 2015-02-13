@@ -5,11 +5,12 @@
  */
 package sd.com.br.gui.login;
 
+import clientesemmaven.Conexoes;
+import edu.ifpb.dac.Usuario;
+import ifpb.dac.service.UsuarioServiceIT;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import sd.com.br.beans.Usuario;
-import sd.com.br.dao.DaoUsuario;
 import sd.com.br.gui.Inicio;
 import sd.com.br.gui.ambiente.usuario.AmbienteUsuario;
 
@@ -27,7 +28,7 @@ public class LoginUsuario extends javax.swing.JFrame {
     
     public LoginUsuario(Inicio inicio) {
         initComponents();
-        Icon icon = new ImageIcon("src/main/java/sd/com/br/gui/img/usuarios.png");
+        Icon icon = new ImageIcon("src/sd/com/br/gui/img/usuarios.png");
         jLIconeUsuario.setIcon(icon);
         this.inicio = inicio;
     }
@@ -160,9 +161,9 @@ public class LoginUsuario extends javax.swing.JFrame {
         
         if((jTEmail.getText().length() > 0) && (jPSenha.getText().length() > 0)){
             
-            DaoUsuario du = new DaoUsuario();
+            UsuarioServiceIT us = Conexoes.usuarioService();
             
-            Usuario u = du.login(jTEmail.getText(), jPSenha.getText());
+            Usuario u = us.login(jTEmail.getText(), jPSenha.getText());
             
                 if (u != null){
                     this.dispose();

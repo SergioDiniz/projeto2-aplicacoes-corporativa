@@ -5,6 +5,7 @@
  */
 package sd.com.br.gui.ambiente.usuario;
 
+import edu.ifpb.dac.Denuncia;
 import java.awt.Color;
 import java.awt.Component;
 import java.util.ArrayList;
@@ -13,7 +14,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
-import sd.com.br.beans.Denuncia;
 import sd.com.br.dao.DaoDenuncia;
 import sd.com.br.gui.ModeloTabela;
 

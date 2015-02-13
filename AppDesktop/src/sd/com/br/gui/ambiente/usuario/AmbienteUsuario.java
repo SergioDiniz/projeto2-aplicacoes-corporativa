@@ -5,10 +5,10 @@
  */
 package sd.com.br.gui.ambiente.usuario;
 
+import edu.ifpb.dac.Usuario;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import sd.com.br.beans.Usuario;
 import sd.com.br.gui.*;
 
 /**

@@ -5,9 +5,9 @@
  */
 package sd.com.br.gui.ambiente.admin;
 
+import edu.ifpb.dac.Administrador;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import sd.com.br.beans.Administrador;
 import sd.com.br.gui.BemVindo;
 import sd.com.br.gui.Inicio;
 
@@ -45,11 +45,11 @@ public class AmbienteAdmin extends javax.swing.JFrame {
     }
     
     public void iniciarBotoes(){
-        Icon iconSolicitacoes = new ImageIcon("src/main/java/sd/com/br/gui/img/solicitacoesPendentes.jpg");
-        Icon iconGerenciar = new ImageIcon("src/main/java/sd/com/br/gui/img/gerenciarestadoPrefeituras.jpg");
-        Icon iconAtivos = new ImageIcon("src/main/java/sd/com/br/gui/img/prefeiturasAtivas.jpg");
-        Icon iconConf = new ImageIcon("src/main/java/sd/com/br/gui/img/configuracoes.jpg");
-        Icon iconSair = new ImageIcon("src/main/java/sd/com/br/gui/img/sair.jpg");
+        Icon iconSolicitacoes = new ImageIcon("src/sd/com/br/gui/img/solicitacoesPendentes.jpg");
+        Icon iconGerenciar = new ImageIcon("src/sd/com/br/gui/img/gerenciarestadoPrefeituras.jpg");
+        Icon iconAtivos = new ImageIcon("src/sd/com/br/gui/img/prefeiturasAtivas.jpg");
+        Icon iconConf = new ImageIcon("src/sd/com/br/gui/img/configuracoes.jpg");
+        Icon iconSair = new ImageIcon("src/sd/com/br/gui/img/sair.jpg");
         
         jBSolicitacoesPendentes.setIcon(iconSolicitacoes);
         jBGerenciarEstado.setIcon(iconGerenciar);
