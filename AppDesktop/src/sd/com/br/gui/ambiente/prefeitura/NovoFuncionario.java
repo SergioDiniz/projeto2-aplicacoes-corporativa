@@ -299,7 +299,7 @@ public class NovoFuncionario extends javax.swing.JPanel {
 
     private void jBVincularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVincularActionPerformed
         // TODO add your handling code here:
-        
+         
             if(jTCPF.getText().length() > 0){
                 
                 FuncionarioServiceIT fs = Conexoes.funcionarioService();

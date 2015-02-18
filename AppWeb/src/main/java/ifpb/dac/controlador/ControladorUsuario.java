@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Ricardo Job
  */
-@ManagedBean(name = "controlador")
+@ManagedBean(name = "controladorUsuario")
 @SessionScoped
 public class ControladorUsuario implements Serializable {
    
@@ -38,6 +38,7 @@ public class ControladorUsuario implements Serializable {
         usuario.setEndereco(eu);
         dao.salvar(usuario);
         usuario = new Usuario();
+        eu = new EnderecoUsuario();
         return null;
     }
     

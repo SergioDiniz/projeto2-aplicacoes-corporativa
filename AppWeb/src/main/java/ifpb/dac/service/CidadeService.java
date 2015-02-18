@@ -27,7 +27,10 @@ public class CidadeService implements CidadeServiceIT{
     @Override
     public Cidade pesquisarCidade(String nome, String estado) {
         CidadePK cidadePK = new CidadePK(nome, estado);
-        return em.find(Cidade.class, cidadePK);
+        Cidade cidade = new Cidade();
+        cidade = em.find(Cidade.class, cidadePK);
+        cidade.getDenuncias().size();
+        return cidade;
     }
 
     @Override

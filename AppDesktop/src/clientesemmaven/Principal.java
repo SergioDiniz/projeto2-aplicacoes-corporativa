@@ -5,9 +5,13 @@
 package clientesemmaven;
 
 import edu.ifpb.dac.EnderecoUsuario;
+import edu.ifpb.dac.Funcionario;
+import edu.ifpb.dac.Prefeitura;
 import edu.ifpb.dac.Usuario;
 import ifpb.dac.service.Carrinho;
 import ifpb.dac.service.DAOIT;
+import ifpb.dac.service.FuncionarioServiceIT;
+import ifpb.dac.service.PrefeituraServiceIT;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Properties;
@@ -23,19 +27,19 @@ import javax.naming.NamingException;
  */
 public class Principal {
 
-    private static final String DAO = "java:global/AppWeb/DAO";
 
     public static void main(String[] args) {
 
-        ServiceLocator service = new ServiceLocator();
-        DAOIT dao = service.lookup(DAO, DAOIT.class);        
+        PrefeituraServiceIT pre = Conexoes.prefeituraService();
+        FuncionarioServiceIT fun = Conexoes.funcionarioService();
         
-        EnderecoUsuario eu = new EnderecoUsuario("pb", "santa helena");
-        Usuario u = new Usuario(eu, "pepi", "bcvbcvb", "lerolero");
+        Prefeitura p = pre.pesquisarPorCodigo(302);
+        Funcionario f = fun.buscarPorCPF("12345678");
         
-
-        
-        dao.salvar(u);
+//        p.getFuncionarios().size();
+//        p.getFuncionarios().add(f);
+                
+        System.out.println(pre.vincular(p, f));
         
 
     }

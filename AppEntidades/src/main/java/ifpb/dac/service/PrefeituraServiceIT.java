@@ -35,4 +35,6 @@ public interface PrefeituraServiceIT {
     
     public List<Prefeitura> todasPrefeituras();
     
+    public Prefeitura atualizarObjPrefeitura(Prefeitura prefeitura);
+    
 }

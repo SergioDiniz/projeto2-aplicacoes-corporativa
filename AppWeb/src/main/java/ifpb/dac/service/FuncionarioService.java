@@ -39,6 +39,7 @@ public class FuncionarioService implements FuncionarioServiceIT{
         List<Funcionario> f = query.getResultList();
         
         if(f.size() > 0){
+            f.get(0).getPrefeituras().size();
             return f.get(0);
         }
         
@@ -54,6 +55,7 @@ public class FuncionarioService implements FuncionarioServiceIT{
         List<Funcionario> f = query.getResultList();
         
         if(f.size() > 0){
+            f.get(0).getPrefeituras().size();
             return f.get(0);
         }
         

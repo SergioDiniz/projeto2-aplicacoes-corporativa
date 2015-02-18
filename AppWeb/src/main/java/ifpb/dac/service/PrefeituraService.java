@@ -35,6 +35,7 @@ public class PrefeituraService implements PrefeituraServiceIT{
         List<Prefeitura> p = query.getResultList();
         
         if(p.size() > 0){
+            p.get(0).getFuncionarios().size();
             return p.get(0);
         }
 
@@ -50,6 +51,7 @@ public class PrefeituraService implements PrefeituraServiceIT{
         List<Funcionario> pf = query.getResultList();        
         
         if (pf.size() > 0){
+            pf.get(0).getPrefeituras().size();
             return  pf.get(0);
         }
 
@@ -59,11 +61,8 @@ public class PrefeituraService implements PrefeituraServiceIT{
     @Override
     public String cadastrarNaPrefeitura(Prefeitura prefeitura, Funcionario funcionario) {
         try {
-
             prefeitura.getFuncionarios().add(funcionario);
-            
             em.merge(prefeitura);
-            
             return "Cadastrado com Sucesso";
             
         } catch (Exception e) {
@@ -75,6 +74,7 @@ public class PrefeituraService implements PrefeituraServiceIT{
 
     @Override
     public String vincular(Prefeitura prefeitura, Funcionario funcionario) {
+        
         Query query = em.createQuery("SELECT f FROM Prefeitura p JOIN p.funcionarios f WHERE p.email = :pEmail AND f.cpf = :fCpf");
               query.setParameter("pEmail", prefeitura.getEmail());
               query.setParameter("fCpf", funcionario.getCpf());
@@ -135,6 +135,7 @@ public class PrefeituraService implements PrefeituraServiceIT{
         List<Prefeitura> prefeituras = query.getResultList();
         
         if (prefeituras.size() > 0){
+            prefeituras.get(0).getFuncionarios().size();
             return  prefeituras.get(0);
         }
         
@@ -187,6 +188,13 @@ public class PrefeituraService implements PrefeituraServiceIT{
         }
         
         return null;
+    }
+
+    @Override
+    public Prefeitura atualizarObjPrefeitura(Prefeitura prefeitura) {
+        em.refresh(em.merge(prefeitura));
+        
+        return prefeitura;
     }
     
 }

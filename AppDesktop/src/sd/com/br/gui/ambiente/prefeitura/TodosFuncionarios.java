@@ -5,7 +5,9 @@
  */
 package sd.com.br.gui.ambiente.prefeitura;
 
+import clientesemmaven.Conexoes;
 import edu.ifpb.dac.Prefeitura;
+import ifpb.dac.service.PrefeituraServiceIT;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import sd.com.br.gui.ModeloTabela;

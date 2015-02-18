@@ -34,6 +34,7 @@ public class UsuarioService implements UsuarioServiceIT{
         List<Usuario> u = query.getResultList();
         
         if(u.size() > 0){
+            u.get(0).getDenuncias().size();
            return u.get(0);
         } 
         
