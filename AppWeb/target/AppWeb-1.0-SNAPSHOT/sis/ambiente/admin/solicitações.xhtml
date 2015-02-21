@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>EGC - Solicitações</title>
+        <link rel="stylesheet" href="../../../css/bootstrap.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../css/bootstrap-theme.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../css/estilo.css" type="text/css"/>
+        <script src="../../../js/jquery-1.11.2.js" type="text/javascript"/>
+        <script src="../../../js/bootstrap.js" type="text/javascript"/>
+        
+    </h:head>
+    <h:body>
+        
+        <div class="conteudo">
+            
+            <div class="container menu">
+                <div class="row">
+                    <div class="col-md-12">
+
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            <div class="container centro">
+                <div class="row">
+                    <div class="col-md-offset-1 col-md-10">
+                        <h2>Solicitações</h2>
+                        <hr/>
+                        
+                        <br/>
+                        
+                        <h:form>
+                            <h:dataTable value="#{controladorAdministrador.prefeiturasPendentes()}" var="prefeitura" class="table table-striped" columnClasses="cDescricao">
+                                
+                                <h:column id="cDescricao">
+                                    <f:facet name="header">
+                                        <h:outputText value="Nome"/>
+                                    </f:facet>
+                                    <h:outputText value="#{prefeitura.nome}"/>
+                                </h:column>
+                                
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="local"/>
+                                    </f:facet>
+                                    <h:outputText value="#{prefeitura.cidade.cidadePK.nomeCidade} - #{prefeitura.cidade.cidadePK.siglaEstado}"/>
+                                </h:column>
+                                
+                                <h:column>
+                                    <h:commandButton value="Excluir" class="btn btn-danger" action="#{controladorAdministrador.excluirPrefeitura(prefeitura)}" />                                    
+                                </h:column>
+
+                                <h:column>
+                                    <h:commandButton value="Aceitar" class="btn btn-success" action="#{controladorAdministrador.atualizarSituacao(prefeitura, 'aceitar')}" />
+                                </h:column>
+                                
+                                
+                                
+                            </h:dataTable>
+                        </h:form>
+                        <br/><br/>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+
+    </h:body>
+</html>
+
+

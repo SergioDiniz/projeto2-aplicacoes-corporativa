@@ -11,10 +11,16 @@ import edu.ifpb.dac.CidadePK;
 import edu.ifpb.dac.Prefeitura;
 import ifpb.dac.service.CidadeServiceIT;
 import ifpb.dac.service.DAOIT;
+import ifpb.dac.service.PrefeituraServiceIT;
+import java.io.IOException;
 import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -33,6 +39,9 @@ public class ControladorPrefeitura implements Serializable{
     
     @EJB
     private CidadeServiceIT cs;
+    
+    @EJB
+    private PrefeituraServiceIT ps;
 
     public ControladorPrefeitura() {
         cidade = new Cidade();
@@ -62,6 +71,54 @@ public class ControladorPrefeitura implements Serializable{
         return null;
     }
 
+    
+    public String login(){
+        this.prefeitura = ps.login(prefeitura.getEmail(), prefeitura.getSenha());
+        
+        if(this.prefeitura != null){
+            return "sis/ambiente/prefeitura/inicio.jsf";
+        } else {
+            this.prefeitura = new Prefeitura();
+            
+            return null;
+        }
+        
+    }
+    
+    public String atualizar(){
+        dao.atualizar(prefeitura);
+        return null;
+    }
+    
+    public String excluirConta(){
+        
+        ps.excluir(prefeitura);
+        
+        logout();
+        
+        return null;
+    }
+    
+    
+    public String logout() {
+        //Redireciona o usuário para tela de login efetuando o logout.  
+        String loginPage = "/index.jsf";
+        ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
+        HttpServletRequest request = (HttpServletRequest) context.getRequest();
+        HttpSession session = (HttpSession) context.getSession(false);
+        session.invalidate();
+        try {
+            context.redirect(request.getContextPath() + loginPage);
+        } catch (IOException e) {
+            //logger.error("Erro ao tentar redirecionar para página solicitada ao efetuar Logout: " + e.toString());  
+        }
+
+        return null;
+    }    
+    
+    
+    
+    
     public Cidade getCidade() {
         return cidade;
     }

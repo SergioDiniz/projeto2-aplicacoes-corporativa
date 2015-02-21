@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>EGC - Denuncias Realizadas</title>
+        <link rel="stylesheet" href="../../../css/bootstrap.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../css/bootstrap-theme.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../css/estilo.css" type="text/css"/>
+        <script src="../../../js/jquery-1.11.2.js" type="text/javascript"/>
+        <script src="../../../js/bootstrap.js" type="text/javascript"/>
+        
+    </h:head>
+    <h:body>
+        
+        <div class="conteudo">
+            
+            <div class="container menu">
+                <div class="row">
+                    <div class="col-md-12">
+
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            <div class="container centro">
+                <div class="row">
+                    <div class="col-md-offset-1 col-md-10">
+                        <h2>Denuncias Realizadas</h2>
+                        <hr/>
+                        
+                        <br/>
+                        
+                        <h:form>
+                            <h:dataTable value="#{controladorUsuario.minhasDenuncias()}" var="denuncia" class="table table-striped" columnClasses="cDescricao">
+                                
+                                <h:column id="cDescricao">
+                                    <f:facet name="header">
+                                        <h:outputText value="Descrição"/>
+                                    </f:facet>
+                                    <h:outputText value="#{denuncia.descricao}"/>
+                                </h:column>
+                                
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Cidade"/>
+                                    </f:facet>
+                                    <h:outputText value="#{denuncia.cidade.cidadePK.nomeCidade}, #{denuncia.cidade.cidadePK.siglaEstado}"/>
+                                </h:column>
+                                
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Endereço"/>
+                                    </f:facet>
+                                    <h:outputText value="#{denuncia.enderecoDenuncia.rua}, nº #{denuncia.enderecoDenuncia.numero}, #{denuncia.enderecoDenuncia.bairro}"/>
+                                </h:column>
+                                
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Estado"/>
+                                    </f:facet>
+                                    <h:outputText value="#{denuncia.estadoDeAcompanhamento}"/>
+                                </h:column>
+                                
+                                
+                                
+                            </h:dataTable>
+                        </h:form>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+
+    </h:body>
+</html>
+
+
