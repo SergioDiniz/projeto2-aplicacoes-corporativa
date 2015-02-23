@@ -82,7 +82,7 @@ public class ControladorFuncionario implements Serializable{
             
             this.cidade = cs.pesquisarCidade(cidadePK.getNomeCidade(), cidadePK.getSiglaEstado());
             
-            return "sis/ambiente/funcionario/inicio.jsf";
+            return "/sis/ambiente/funcionario/inicio.jsf?faces-redirect=true";
         } else {
             cidadePK = new CidadePK();
             return null;
@@ -111,19 +111,9 @@ public class ControladorFuncionario implements Serializable{
     }
 
     public String logout() {
-        //Redireciona o usuário para tela de login efetuando o logout.  
-        String loginPage = "/index.jsf";
-        ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
-        HttpServletRequest request = (HttpServletRequest) context.getRequest();
-        HttpSession session = (HttpSession) context.getSession(false);
-        session.invalidate();
-        try {
-            context.redirect(request.getContextPath() + loginPage);
-        } catch (IOException e) {
-            //logger.error("Erro ao tentar redirecionar para página solicitada ao efetuar Logout: " + e.toString());  
-        }
-
-        return null;
+        this.funcionario = new Funcionario();
+        this.cidadePK = new CidadePK();
+        return "/index.jsf?faces-redirect=true";
     }    
 
     public Cidade getCidade() {

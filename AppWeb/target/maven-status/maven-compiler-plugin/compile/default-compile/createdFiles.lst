@@ -10,3 +10,4 @@ ifpb\dac\controlador\ControladorCidade.class
 ifpb\dac\controlador\ControladorPrefeitura.class
 ifpb\dac\controlador\ControladorFuncionario.class
 ifpb\dac\service\DAO.class
+ifpb\dac\controlador\ControladorAdministrador.class

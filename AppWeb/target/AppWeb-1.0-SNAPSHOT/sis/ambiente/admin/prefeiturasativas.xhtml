@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
         <title>EGC - Prefeituras</title>
         <link rel="stylesheet" href="../../../css/bootstrap.css" type="text/css"/>
@@ -17,11 +18,18 @@
         
         <div class="conteudo">
             
-            <div class="container menu">
-                <div class="row">
-                    <div class="col-md-12">
-
-                    </div>
+            <div id="top">
+                <ui:include src="topo.xhtml"/>
+            </div>
+            
+            
+            <div id="menul">
+                <ui:include src="menulateral.xhtml"/>
+            </div>
+            
+            <div class="area-titulo-pagina">
+                <div class="titulo-pagina">
+                    Prefeituras Ativas
                 </div>
             </div>
             
@@ -30,9 +38,7 @@
             <div class="container centro">
                 <div class="row">
                     <div class="col-md-offset-1 col-md-10">
-                        <h2>Prefeituras</h2>
-                        <hr/>
-                        
+                        <br/>
                         <br/>
                         
                         <h:form>

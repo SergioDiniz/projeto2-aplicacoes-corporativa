@@ -49,7 +49,7 @@ public class ControladorAdministrador implements Serializable{
         this.administrador = ad.login(administrador.getEmail(), administrador.getSenha());
         
         if(administrador != null){
-            return "sis/ambiente/admin/inicio.jsf";
+            return "/sis/ambiente/admin/inicio.jsf?faces-redirect=true";
         } else{
             this.administrador = new Administrador();
             return null;
@@ -93,19 +93,8 @@ public class ControladorAdministrador implements Serializable{
     
     
     public String logout() {
-        //Redireciona o usuário para tela de login efetuando o logout.  
-        String loginPage = "/index.jsf";
-        ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
-        HttpServletRequest request = (HttpServletRequest) context.getRequest();
-        HttpSession session = (HttpSession) context.getSession(false);
-        session.invalidate();
-        try {
-            context.redirect(request.getContextPath() + loginPage);
-        } catch (IOException e) {
-            //logger.error("Erro ao tentar redirecionar para página solicitada ao efetuar Logout: " + e.toString());  
-        }
-
-        return null;
+        this.administrador = new Administrador();
+        return "/index.jsf?faces-redirect=true";
     }    
 
     

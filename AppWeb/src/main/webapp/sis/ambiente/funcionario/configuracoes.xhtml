@@ -2,37 +2,34 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
         <title>EGC - Configurações</title>
-        <link rel="stylesheet" href="../../../css/bootstrap.css" type="text/css"/>
-        <link rel="stylesheet" href="../../../css/bootstrap-theme.css" type="text/css"/>
-        <link rel="stylesheet" href="../../../css/estilo.css" type="text/css"/>
-        <script src="../../../js/jquery-1.11.2.js" type="text/javascript"/>
-        <script src="../../../js/bootstrap.js" type="text/javascript"/>
-        
     </h:head>
     <h:body>
         
         <div class="conteudo">
             
-            <div class="container menu">
-                <div class="row">
-                    <div class="col-md-12">
-
-                    </div>
-                </div>
+            <div id="top">
+                <ui:include src="topo.xhtml"/>
             </div>
             
             
+            <div id="menul">
+                <ui:include src="menulateral.xhtml"/>
+            </div>
+            
+            <div class="area-titulo-pagina">
+                <div class="titulo-pagina">
+                    Configurações
+                </div>
+            </div>
             
             <div class="container centro">
                 <div class="row">
                     <div class="col-md-offset-1 col-md-9">
-                        <h2>Configurações</h2>
-                        <hr/>
-                        
-                        <br/>
+                        <br/><br/>
                         
                         <h:form>
                             <div class="row">
@@ -47,9 +44,8 @@
                                     <h:inputText value="#{controladorFuncionario.funcionario.email}" class="form-control input-lg campos-formulario" id="email" required="required" pt:placeholder="email"/> 
                                     <br/>
                                     Senha <br/>
-                                    <h:inputText value="#{controladorFuncionario.funcionario.senha}" class="form-control input-lg campos-formulario" id="senha" required="required" pt:placeholder="senha"/> 
-                                    <br/><br/><br/>
-                                    
+                                    <h:inputSecret redisplay="true" value="#{controladorFuncionario.funcionario.senha}" class="form-control input-lg campos-formulario" id="senha" required="required" pt:placeholder="senha"/> 
+                                    <br/>
                                     
                                     
                                     <br/><br/>

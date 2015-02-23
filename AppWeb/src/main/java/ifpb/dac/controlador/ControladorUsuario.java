@@ -63,7 +63,8 @@ public class ControladorUsuario implements Serializable {
     public String login(){
         this.usuario = us.login(usuario.getEmail(), usuario.getSenha());
         if (usuario != null){
-            return "sis/ambiente/usuario/inicio.jsf";
+            return "/sis/ambiente/usuario/inicio.jsf?faces-redirect=true";
+//            FacesContext.getCurrentInstance().getExternalContext().redirect(null);
         } else {
             return null;
         }
@@ -98,24 +99,21 @@ public class ControladorUsuario implements Serializable {
         
         logout();
         
-        return "index.jsf";
+        return "/index.jsf?faces-redirect=true";
     }
     
-    public String logout() {
-        //Redireciona o usuário para tela de login efetuando o logout.  
-        String loginPage = "/index.jsf";
-        ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
-        HttpServletRequest request = (HttpServletRequest) context.getRequest();
-        HttpSession session = (HttpSession) context.getSession(false);
-        session.invalidate();
-        try {
-            context.redirect(request.getContextPath() + loginPage);
-        } catch (IOException e) {
-            //logger.error("Erro ao tentar redirecionar para página solicitada ao efetuar Logout: " + e.toString());  
-        }
-
-        return null;
+    public String logout(){
+        this.usuario = new Usuario();
+        return "/index.jsf?faces-redirect=true";
     }
+    
+    public void mostrapagina() throws IOException{
+        if(usuario.getEmail() == null){
+            FacesContext.getCurrentInstance().getExternalContext().redirect("../../../index.jsf");
+        }
+        
+    }
+    
     
     /*
     private String produto;
