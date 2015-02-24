@@ -37,4 +37,6 @@ public interface PrefeituraServiceIT {
     
     public Prefeitura atualizarObjPrefeitura(Prefeitura prefeitura);
     
+    public List<Funcionario> funcionarios(Prefeitura prefeitura);
+    
 }

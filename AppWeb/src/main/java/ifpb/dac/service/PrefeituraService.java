@@ -93,6 +93,8 @@ public class PrefeituraService implements PrefeituraServiceIT{
 
     @Override
     public String desvincular(Prefeitura prefeitura, String cpf) {
+        System.out.println(prefeitura.getNome() + " " + cpf);
+        
         Funcionario funcionario = pesquisarFuncionario(prefeitura, cpf);
         
         
@@ -195,6 +197,15 @@ public class PrefeituraService implements PrefeituraServiceIT{
         em.refresh(em.merge(prefeitura));
         
         return prefeitura;
+    }
+
+    @Override
+    public List<Funcionario> funcionarios(Prefeitura prefeitura) {
+        Query query = em.createQuery("SELECT f FROM Prefeitura p JOIN p.funcionarios f WHERE p.id = :id");
+        query.setParameter("id", prefeitura.getId());
+        
+        return query.getResultList();
+        
     }
     
 }

@@ -8,12 +8,14 @@ package ifpb.dac.controlador;
 import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import edu.ifpb.dac.Cidade;
 import edu.ifpb.dac.CidadePK;
+import edu.ifpb.dac.Funcionario;
 import edu.ifpb.dac.Prefeitura;
 import ifpb.dac.service.CidadeServiceIT;
 import ifpb.dac.service.DAOIT;
 import ifpb.dac.service.PrefeituraServiceIT;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -104,6 +106,24 @@ public class ControladorPrefeitura implements Serializable{
         this.prefeitura = new Prefeitura();
         return "/index.jsf?faces-redirect=true";
     }    
+    
+    
+    
+    public String desvincularFuncionario(Funcionario f){
+        ps.desvincular(this.prefeitura, f.getCpf());
+        this.prefeitura.getFuncionarios().remove(f);
+        return null;
+    }
+    
+    
+    public List<Funcionario> funcionarios(){
+        return ps.funcionarios(this.prefeitura);
+    }
+    
+    
+    
+    
+    
     
     
     
