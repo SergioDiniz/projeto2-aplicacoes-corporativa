@@ -39,7 +39,7 @@ public class ControladorCidade implements Serializable{
         dao.salvar(cidade);
         cidade = new Cidade();
         cidadePK = new CidadePK();
-        return null;
+        return "/index.jsf?faces-redirect=true";
     }
     
     

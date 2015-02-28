@@ -70,7 +70,7 @@ public class ControladorFuncionario implements Serializable{
     public String add(){
         dao.salvar(funcionario);
         funcionario = new Funcionario();
-        return null;
+        return "/index.jsf?faces-redirect=true";
     }
     
     public String login(){

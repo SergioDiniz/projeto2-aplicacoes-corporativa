@@ -8,9 +8,11 @@ import edu.ifpb.dac.EnderecoUsuario;
 import edu.ifpb.dac.Usuario;
 import ifpb.dac.service.Carrinho;
 import ifpb.dac.service.DAOIT;
+import ifpb.dac.service.DenunciaServiceIT;
 import ifpb.dac.service.UsuarioServiceIT;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -34,12 +36,19 @@ public class ControladorUsuario implements Serializable {
     CidadePK cidadePK;
     Denuncia denuncia;
     EnderecoDenuncia ed;
+    String cid;
+    String est;    
+    boolean resultadoPesquisa;
+    
     
     @EJB
     private DAOIT dao;
     
     @EJB
     private UsuarioServiceIT us;
+    
+    @EJB
+    private DenunciaServiceIT ds;
 
     public ControladorUsuario() {
         usuario = new Usuario();
@@ -48,6 +57,7 @@ public class ControladorUsuario implements Serializable {
         cidadePK = new CidadePK();
         denuncia = new Denuncia();
         ed = new EnderecoDenuncia();
+        resultadoPesquisa = false;
     }
     
 
@@ -56,7 +66,7 @@ public class ControladorUsuario implements Serializable {
         dao.salvar(usuario);
         usuario = new Usuario();
         eu = new EnderecoUsuario();
-        return null;
+        return "/index.jsf?faces-redirect=true";
     }
     
     
@@ -71,6 +81,15 @@ public class ControladorUsuario implements Serializable {
         
     }
     
+    
+    public List<Denuncia> pesquisarCidade(){
+        return ds.pesquisarPorCidade(cid, est);
+    }
+    
+    public void resultadoPesquisa(){
+        resultadoPesquisa = true;
+    }
+    
     public String novaDenuncia(){
         String resultado = us.novaDenuncia(usuario, cidadePK.getNomeCidade(), cidadePK.getSiglaEstado(), 
                    ed.getRua(), String.valueOf(ed.getNumero()), ed.getBairro(), denuncia.getDescricao());
@@ -79,7 +98,9 @@ public class ControladorUsuario implements Serializable {
         ed = new EnderecoDenuncia();
         denuncia = new Denuncia();
         
-        return null;
+        usuario.getDenuncias().add(denuncia);
+        
+        return "denunciasrealizadas.jsf" ;
     }
     
     
@@ -104,6 +125,12 @@ public class ControladorUsuario implements Serializable {
     
     public String logout(){
         this.usuario = new Usuario();
+        this.eu = new EnderecoUsuario();
+        this.cidade = new Cidade();
+        this.cidadePK = new CidadePK();
+        this.denuncia = new Denuncia();
+        this.ed = new EnderecoDenuncia();
+        this.resultadoPesquisa = false;
         return "/index.jsf?faces-redirect=true";
     }
     
@@ -206,6 +233,30 @@ public class ControladorUsuario implements Serializable {
         this.ed = ed;
     }
     
+
+    public String getCid() {
+        return cid;
+    }
+
+    public void setCid(String cid) {
+        this.cid = cid;
+    }
+
+    public String getEst() {
+        return est;
+    }
+
+    public void setEst(String est) {
+        this.est = est;
+    }
+
+    public boolean isResultadoPesquisa() {
+        return resultadoPesquisa;
+    }
+
+    public void setResultadoPesquisa(boolean resultadoPesquisa) {
+        this.resultadoPesquisa = resultadoPesquisa;
+    }
     
     
 }
