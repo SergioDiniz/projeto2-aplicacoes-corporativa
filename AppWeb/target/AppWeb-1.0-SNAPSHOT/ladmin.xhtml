@@ -13,44 +13,48 @@
         <script src="js/scripts.js" type="text/javascript"/>
     </h:head>
     <h:body>
-        
+
         <div class="conteudo">
-            
+
             <div class="container menu">
                 <div class="row">
                     <div class="col-md-12">
-
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="centro>">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-offset-3 col-md-6">
-                        <div class="login">
-                            <div align="center">
-                                <h1>login administrador</h1>
-                            </div>
-                            <div class="formulario-login-usuario">
-                                <h:form>                    
-                                    <h:inputText class="form-control input-lg campos-formulario" value="#{controladorAdministrador.administrador.email}" id="email" required="true" pt:placeholder="email"/>
-                                    <br/>
-                                    <h:inputSecret class="form-control input-lg campos-formulario" value="#{controladorAdministrador.administrador.senha}" id="senha" required="true" pt:placeholder="senha"/> 
-                                    <br/><br/>
-                                    <h:commandButton class="btn btn-primary btn-lg botao-login" action="#{controladorAdministrador.login()}" value="login"/>
-                                </h:form>
-                            </div>
+                        <div class="logo">
+                            <h:form>
+                                <h:commandButton image="img/logo.png" action="/index.jsf?faces-redirect=true"/>
+                            </h:form>
                         </div>
                     </div>
                 </div>
-                
-                
-                
             </div>
+
+
+            <div class="centro>">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-6">
+                            <div class="login">
+                                <div align="center">
+                                    <h1>login administrador</h1>
+                                </div>
+                                <div class="formulario-login-usuario">
+                                    <h:form>                    
+                                        <h:inputText class="form-control input-lg campos-formulario" value="#{controladorAdministrador.administrador.email}" id="email" required="true" pt:placeholder="email"/>
+                                        <br/>
+                                        <h:inputSecret class="form-control input-lg campos-formulario" value="#{controladorAdministrador.administrador.senha}" id="senha" required="true" pt:placeholder="senha"/> 
+                                        <br/><br/>
+                                        <h:commandButton class="btn btn-primary btn-lg botao-login" action="#{controladorAdministrador.login()}" value="login"/>
+                                    </h:form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
             </div>
-            
+
         </div>
 
     </h:body>

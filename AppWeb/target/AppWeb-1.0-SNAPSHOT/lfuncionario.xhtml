@@ -13,54 +13,58 @@
         <script src="js/scripts.js" type="text/javascript"/>
     </h:head>
     <h:body>
-        
+
         <div class="conteudo">
-            
+
             <div class="container menu">
                 <div class="row">
                     <div class="col-md-12">
-
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="centro>">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-offset-3 col-md-6">
-                        <div class="login">
-                            <div align="center">
-                                <h1>login funcionario</h1>
-                            </div>
-                            <div class="formulario-login-usuario">
-                                <h:form>                    
-                                    <h:inputText class="form-control input-lg campos-formulario" value="#{controladorFuncionario.funcionario.email}" id="email" required="true" pt:placeholder="email"/>
-                                    <br/>
-                                    <h:inputSecret class="form-control input-lg campos-formulario" value="#{controladorFuncionario.funcionario.senha}" id="senha" required="required" pt:placeholder="senha"/> 
-                                    <br/>
-                                    <h:inputText class="form-control input-lg campos-formulario" value="#{controladorFuncionario.cidadePK.nomeCidade}" id="cidade" required="true" pt:placeholder="cidade"/>
-                                    <br/>
-                                    <h:inputText class="form-control input-lg campos-formulario" value="#{controladorFuncionario.cidadePK.siglaEstado}" id="uf" required="true" pt:placeholder="UF"/>
-                                    
-                                    <br/><br/>
-                                    <h:commandButton class="btn btn-primary btn-lg botao-login" action="#{controladorFuncionario.login()}" value="login"/>
-                                </h:form>
-                            </div>
+                        <div class="logo">
+                            <h:form>
+                                <h:commandButton image="img/logo.png" action="/index.jsf?faces-redirect=true"/>
+                            </h:form>
                         </div>
                     </div>
                 </div>
             </div>
-                
-            <div class="row" align="center">
-                <br/><br/>
-                <h:form>
-                    <h:commandButton class="btn btn-link" value="Cadastre-se" action="sis/cadastro/funcionario.jsf?faces-redirect=true"/>
-                </h:form>
-            </div>    
-                
+
+
+            <div class="centro>">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-6">
+                            <div class="login">
+                                <div align="center">
+                                    <h1>login funcionario</h1>
+                                </div>
+                                <div class="formulario-login-usuario">
+                                    <h:form>                    
+                                        <h:inputText class="form-control input-lg campos-formulario" value="#{controladorFuncionario.funcionario.email}" id="email" required="true" pt:placeholder="email"/>
+                                        <br/>
+                                        <h:inputSecret class="form-control input-lg campos-formulario" value="#{controladorFuncionario.funcionario.senha}" id="senha" required="required" pt:placeholder="senha"/> 
+                                        <br/>
+                                        <h:inputText class="form-control input-lg campos-formulario" value="#{controladorFuncionario.cidadePK.nomeCidade}" id="cidade" required="true" pt:placeholder="cidade"/>
+                                        <br/>
+                                        <h:inputText class="form-control input-lg campos-formulario" value="#{controladorFuncionario.cidadePK.siglaEstado}" id="uf" required="true" pt:placeholder="UF"/>
+
+                                        <br/><br/>
+                                        <h:commandButton class="btn btn-primary btn-lg botao-login" action="#{controladorFuncionario.login()}" value="login"/>
+                                    </h:form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" align="center">
+                    <br/><br/>
+                    <h:form>
+                        <h:commandButton class="btn btn-link" value="Cadastre-se" action="sis/cadastro/funcionario.jsf?faces-redirect=true"/>
+                    </h:form>
+                </div>    
+
             </div>
-            
+
         </div>
 
     </h:body>

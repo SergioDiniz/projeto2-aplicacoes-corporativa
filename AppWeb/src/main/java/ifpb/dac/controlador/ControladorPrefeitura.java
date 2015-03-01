@@ -97,7 +97,12 @@ public class ControladorPrefeitura implements Serializable{
         this.prefeitura = ps.login(prefeitura.getEmail(), prefeitura.getSenha());
         
         if(this.prefeitura != null){
-            return "/sis/ambiente/prefeitura/inicio.jsf?faces-redirect=true";
+            
+            if(prefeitura.isAtivo() == true){
+                return "/sis/ambiente/prefeitura/inicio.jsf?faces-redirect=true";
+            }
+            
+            return null;
         } else {
             this.prefeitura = new Prefeitura();
             

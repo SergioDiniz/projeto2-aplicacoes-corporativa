@@ -58,6 +58,8 @@ public class ControladorUsuario implements Serializable {
         denuncia = new Denuncia();
         ed = new EnderecoDenuncia();
         resultadoPesquisa = false;
+        cid = "";
+        est = "";
     }
     
 
@@ -131,6 +133,8 @@ public class ControladorUsuario implements Serializable {
         this.denuncia = new Denuncia();
         this.ed = new EnderecoDenuncia();
         this.resultadoPesquisa = false;
+        this.cid = "";
+        this.est = "";
         return "/index.jsf?faces-redirect=true";
     }
     
