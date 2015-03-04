@@ -6,6 +6,8 @@ import edu.ifpb.dac.Denuncia;
 import edu.ifpb.dac.EnderecoDenuncia;
 import edu.ifpb.dac.EnderecoUsuario;
 import edu.ifpb.dac.Usuario;
+import ifpb.dac.queue.Consumidor;
+import ifpb.dac.queue.Produtor;
 import ifpb.dac.service.Carrinho;
 import ifpb.dac.service.DAOIT;
 import ifpb.dac.service.DenunciaServiceIT;
@@ -19,6 +21,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.jms.JMSException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -49,7 +53,11 @@ public class ControladorUsuario implements Serializable {
     
     @EJB
     private DenunciaServiceIT ds;
-
+    
+    
+    @Inject
+    ControladorQueue cq;
+    
     public ControladorUsuario() {
         usuario = new Usuario();
         eu = new EnderecoUsuario();
@@ -72,12 +80,15 @@ public class ControladorUsuario implements Serializable {
     }
     
     
-    public String login(){
+    public String login() throws JMSException{
         this.usuario = us.login(usuario.getEmail(), usuario.getSenha());
         if (usuario != null){
+            cq.setMensagem("1");
             return "/sis/ambiente/usuario/inicio.jsf?faces-redirect=true";
 //            FacesContext.getCurrentInstance().getExternalContext().redirect(null);
         } else {
+            loginErro();
+            usuario = new Usuario();
             return null;
         }
         
@@ -146,48 +157,19 @@ public class ControladorUsuario implements Serializable {
     }
     
     
-    /*
-    private String produto;
-
-    @EJB
-    private Carrinho carrinho;    
-
-    public String add() {
-        carrinho.add(produto);
-        produto = new String();
+    
+    public String mensagemLogin() throws JMSException{
+        return cq.recebendoMensagem();
+    }
+    
+    public String loginErro() throws JMSException{
+        cq.setMensagem("2");
+        cq.enviar();
         return null;
     }
-
-    public String finalizar() {
-        carrinho.finalizar();
-        logout();
-        return null;
-    }
-
-    public String getProduto() {
-        return produto;
-    }
-
-    public void setProduto(String produto) {
-        this.produto = produto;
-    }
-
-    public String logout() {
-        //Redireciona o usuário para tela de login efetuando o logout.  
-        String loginPage = "/index.jsf";
-        ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
-        HttpServletRequest request = (HttpServletRequest) context.getRequest();
-        HttpSession session = (HttpSession) context.getSession(false);
-        session.invalidate();
-        try {
-            context.redirect(request.getContextPath() + loginPage);
-        } catch (IOException e) {
-            //logger.error("Erro ao tentar redirecionar para página solicitada ao efetuar Logout: " + e.toString());  
-        }
-
-        return null;
-    }
-*/
+    
+    
+    
 
     public Usuario getUsuario() {
         return usuario;

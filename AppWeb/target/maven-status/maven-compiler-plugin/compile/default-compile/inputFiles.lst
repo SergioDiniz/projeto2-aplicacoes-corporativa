@@ -1,9 +1,12 @@
 D:\Sergio\Documentos\ADS\P5\DAC\Projetos\Projeto 2\projeto-2-dac\AppWeb\src\main\java\ifpb\dac\controlador\ControladorUsuario.java
 D:\Sergio\Documentos\ADS\P5\DAC\Projetos\Projeto 2\projeto-2-dac\AppWeb\src\main\java\ifpb\dac\controlador\ControladorAdministrador.java
 D:\Sergio\Documentos\ADS\P5\DAC\Projetos\Projeto 2\projeto-2-dac\AppWeb\src\main\java\ifpb\dac\controlador\ControladorPrefeitura.java
+D:\Sergio\Documentos\ADS\P5\DAC\Projetos\Projeto 2\projeto-2-dac\AppWeb\src\main\java\ifpb\dac\controlador\ControladorQueue.java
 D:\Sergio\Documentos\ADS\P5\DAC\Projetos\Projeto 2\projeto-2-dac\AppWeb\src\main\java\ifpb\dac\service\DAO.java
 D:\Sergio\Documentos\ADS\P5\DAC\Projetos\Projeto 2\projeto-2-dac\AppWeb\src\main\java\ifpb\dac\service\DenunciaService.java
+D:\Sergio\Documentos\ADS\P5\DAC\Projetos\Projeto 2\projeto-2-dac\AppWeb\src\main\java\ifpb\dac\queue\Produtor.java
 D:\Sergio\Documentos\ADS\P5\DAC\Projetos\Projeto 2\projeto-2-dac\AppWeb\src\main\java\ifpb\dac\service\FuncionarioService.java
+D:\Sergio\Documentos\ADS\P5\DAC\Projetos\Projeto 2\projeto-2-dac\AppWeb\src\main\java\ifpb\dac\queue\Consumidor.java
 D:\Sergio\Documentos\ADS\P5\DAC\Projetos\Projeto 2\projeto-2-dac\AppWeb\src\main\java\ifpb\dac\service\AdministradorService.java
 D:\Sergio\Documentos\ADS\P5\DAC\Projetos\Projeto 2\projeto-2-dac\AppWeb\src\main\java\ifpb\dac\service\PrefeituraService.java
 D:\Sergio\Documentos\ADS\P5\DAC\Projetos\Projeto 2\projeto-2-dac\AppWeb\src\main\java\ifpb\dac\service\UsuarioService.java

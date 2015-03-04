@@ -47,6 +47,8 @@
                                 <br/>
                                 <h:commandButton class="btn btn-primary btn-lg btn-login" value="entrar"
                                                  action="#{controladorUsuario.login()}"/>
+                                
+                                <h:outputText value="#{controladorUsuario.mensagemLogin()}" class="text-danger"/>
                             </h:form>
                         </div>
                     </div>
